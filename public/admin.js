@@ -23,13 +23,22 @@ console.log(updateBook)
  dog.addEventListener('click',()=>{
     console.log("Dallas rules")
  })
-let buttons = document.querySelectorAll('.booksSave') 
-for (let i =1; i<= buttons.length; i++){
-   console.log(buttons[i])
-    buttons[i].addEventListener('click',(i,input)=>{
-        updateCount(i,input)
-    })
-}
+ var button = document.getElementsByTagName('button');    
+
+ for (var i = 0; i < button.length; i++) {        
+    document.getElementById(button[i].id).addEventListener('click',()=>{
+        console.log(`${input.value}`)
+    } )        
+    // document.getElementById(images[i].id).addEventListener('mouseout',)        
+} 
+
+ // var buttons = document.querySelectorAll('.booksSave') 
+// for (var i =1; i<= buttons.length; i++){
+//    console.log(buttons[i])
+//     buttons[i].addEventListener('click',(i,input)=>{
+//         updateCount(i,input)
+//     })
+// }
 console.log('hi')
 //function to update book count 
 async function updateCount(){ 

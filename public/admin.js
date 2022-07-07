@@ -26,7 +26,8 @@ console.log(updateBook)
  var button = document.getElementsByTagName('button');    
 
  for (var i = 0; i < button.length; i++) {        
-    document.getElementById(button[i].id).addEventListener('click',()=>{
+    button[i].addEventListener('click',(input)=>{
+        // console.log(`${input.value}`)
         console.log(`${input.value}`)
     } )        
     // document.getElementById(images[i].id).addEventListener('mouseout',)        

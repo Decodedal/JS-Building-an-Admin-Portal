@@ -20,15 +20,26 @@ console.log(updateBook)
 
  updateBook()
 
- dog.addEventListener('click',()=>{
-    console.log("Dallas rules")
- })
- var button = document.getElementsByTagName('button');    
+//  dog.addEventListener('click',()=>{
+//     console.log("Dallas rules")
+//  })
+ var button = document.getElementsByTagName('button');  
+ 
+
+let input = document.getElementsByTagName('input')
+
+for (let j=0; j<input.length;j++){
+    input[j].addEventListener('keyup',()=>{
+       updateCount(j,input[j])
+    })
+}
+
 
  for (var i = 0; i < button.length; i++) {        
-    button[i].addEventListener('click',(input)=>{
-        // console.log(`${input.value}`)
-        console.log(`${input.value}`)
+    button[i].addEventListener('click',()=>{
+       updateCount(i,button[i])
+        console.log(i)
+        
     } )        
     // document.getElementById(images[i].id).addEventListener('mouseout',)        
 } 
@@ -42,14 +53,14 @@ console.log(updateBook)
 // }
 console.log('hi')
 //function to update book count 
-async function updateCount(){ 
+async function updateCount(i,input){ 
     let response = await fetch('http://localhost:3001/updateBook',{
         method:"PATCH",
         headers:{
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            'id':i,
+            'id':i+1,
             "quantity": input.value
         })
     })
